@@ -1,5 +1,5 @@
 {
-  "name": "zod-message-protocol",
+  "name": "zod-message-schema",
   "version": "0.0.1",
   "description": "",
   "private": false,
@@ -14,9 +14,18 @@
     "ci": "npm run lint && npm run test && npm run build",
     "release": "npm run lint && npm run test && npm run build && changeset publish"
   },
-  "keywords": [],
+  "keywords": [
+    "zod",
+    "typescript"
+  ],
   "author": "Nic Strong ",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicstrong/zod-message-schema.git"
+  },
+  "homepage": "https://github.com/nicstrong/zod-message-schema#readme.md",
+  "bugs": "https://github.com/nicstrong/zod-message-schema/issues",
   "peerDependencies": {
     "zod": "^3"
   },

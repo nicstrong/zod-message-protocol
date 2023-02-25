@@ -1,5 +1,5 @@
 ---
-'zod-message-protocol': minor
+'zod-message-schema': minor
 ---
 
 Initial commit
