@@ -11,7 +11,7 @@ const messageSchema = createMessageSchema({
   },
 })
 
-const sender = messageSchema.creataeSender(window.postMessage)
+const sender = messageSchema.createHandler(window.postMessage)
 
 sender({ type: 'LOG_IN', username: 'foo', password: 'bar' })
 sender({ type: 'LOG_OUT' })
