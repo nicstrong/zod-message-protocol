@@ -17,6 +17,9 @@
   "keywords": [],
   "author": "Nic Strong ",
   "license": "MIT",
+  "peerDependencies": {
+    "zod": "^3"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@types/node": "^18.14.1",
