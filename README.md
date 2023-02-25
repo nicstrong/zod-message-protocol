@@ -28,6 +28,13 @@ const handleParentEvent = scehma.createHandler((event) => {
 window.addEventListener("message", (event) => {
   handleParentEvent(event.data);
 });
+
+// parent.ts
+
+const iframe = document.querySelector('iframe')
+
+const sendToChild = scehma.createHandler(iframe!.contentWindow!.postMessage)
+
 ```
 
 ## Installation
