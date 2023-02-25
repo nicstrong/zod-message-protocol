@@ -8,6 +8,6 @@ export type EventsConfigToDiscriminatedUnion<T extends Record<string, z.ZodRawSh
   {
     [K in keyof T]: {
       type: K
-    } & z.infer<z.ZodObject<T[K]>>
+    } & Omit<z.infer<z.ZodObject<T[K]>>, 'type'>
   }[keyof T]
 >

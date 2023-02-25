@@ -3,16 +3,19 @@ import { EventsConfigToDiscriminatedUnion } from './types'
 
 export const createMessageSchema = <
   T extends Record<string, z.ZodRawShape>,
-  EventsAsDiscoUnion = EventsConfigToDiscriminatedUnion<T>
+  EventsAsDiscoUnion extends { type: string } = EventsConfigToDiscriminatedUnion<T>
 >(opts: {
   events: T
 }) => {
   return {
-    creataeSender: (func: (event: EventsAsDiscoUnion) => void) => {
-      return func
-    },
-    creataeHandler: (func: (event: EventsAsDiscoUnion) => void) => {
-      return func
+    createHandler: (handler: (event: EventsAsDiscoUnion) => void) => {
+      return (event: EventsAsDiscoUnion) => {
+        const eventSchema = z.object({
+          ...opts.events[event.type],
+          type: z.literal(event.type),
+        })
+        handler(eventSchema.parse(event) as EventsAsDiscoUnion)
+      }
     },
   }
 }
